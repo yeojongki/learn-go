@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 // out vars
 var a = 1
@@ -33,10 +36,48 @@ func varsShorter() {
 	fmt.Println(a, b, c)
 }
 
+func forceTransform() {
+	a, b := 3, 4
+	c := math.Sqrt(float64(a*a + b*b))
+	fmt.Println(c)
+}
+
+func consts() {
+	// const 数值可以作为各种类型使用  对比函数 `forceTransform`
+	const a, b = 3, 4
+	c := math.Sqrt(a*a + b*b)
+	fmt.Println(c)
+}
+
+func enums() {
+	const (
+		a = iota
+		_
+		c
+		d
+	)
+
+	const (
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+
+	fmt.Println(a, b, c, d)
+	fmt.Println(b, kb, mb, gb, tb, pb)
+}
+
 func main() {
 	varsWithOut()
 	varsWithoutInit()
 	varsWithInit()
 	varsTypeDeduction()
 	varsShorter()
+
+	forceTransform()
+	consts()
+	enums()
 }
