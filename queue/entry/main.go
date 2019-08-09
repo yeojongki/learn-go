@@ -13,4 +13,7 @@ func main() {
 	fmt.Println(q.Pop())
 	fmt.Println(q.Pop())
 	fmt.Println(q, q.IsEmpty())
+
+	q.Push("interface test")
+	fmt.Println(q.Pop())
 }
